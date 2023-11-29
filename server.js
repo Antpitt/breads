@@ -1,5 +1,7 @@
 // DEPENDENCIES
+const methodOverride = require('method-override')
 const express = require('express')
+
 
 // CONFIGURATION
 require('dotenv').config()
@@ -7,7 +9,7 @@ const PORT = process.env.PORT
 const app = express()
 
 // MIDDLEWARE
-// MIDDLEWARE
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.set('views', __dirname + '/views')
